@@ -1,7 +1,4 @@
-extends layout
-
-block content
-  .row
+.row
     form(action="/login", method="post")
             
         div.input-field.col.s12
@@ -15,4 +12,9 @@ block content
             button(type='submit')
                 | Login
                 i.material-icons.right send
+
+//- script(src="./javascripts/moduleApi/apiHttp.js")
+//- script(src="/javascripts/login/login.js")
+
+
 
