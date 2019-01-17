@@ -9,7 +9,7 @@ var flash = require('connect-flash')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-// var homeRouter  = require('./routes/home');
+var providerRouter  = require('./routes/provider');
 
 
 
@@ -18,21 +18,27 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-
+app.use(flash());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({secret: 'keyboard cat', resave:true, saveUninitialized: true}));
-require('./passport/passport')(passport);
+app.use(session({
+  saveUninitialized: true,
+  resave: true,
+  secret: 'keyboard cat',
+}));
+
+
 app.use(passport.initialize());
 app.use(passport.session());
+require('./passport/passport')(passport);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.use('/provider', providerRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

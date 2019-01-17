@@ -1,6 +1,8 @@
 function isEmpty(value){
+    console.log(value);
     if(value == undefined || value.length == 0)
         return true; 
+    return false;
 }
 
 

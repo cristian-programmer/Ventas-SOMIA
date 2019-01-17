@@ -1,7 +1,6 @@
 mysql = require('mysql');
 
 function connectDB(){
-   
     connection = mysql.createConnection({
         host:'localhost' ,
         user: 'root',
@@ -11,10 +10,16 @@ function connectDB(){
 
     return connection;
 }
-       
- 
 
+function db(query){
+    return new Promise((resolve, reject)=>{
+        db= connectDB();
+        db.query(query, (error, result)=>{
+            if(error) reject(error);            
+            db.end();
+            resolve(result);
+        });
+    });
+}
 
-
-
-module.exports ={connectDB};
+module.exports ={connectDB, db};

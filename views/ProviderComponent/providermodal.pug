@@ -1,0 +1,24 @@
+#addClient.modal.col.s12.m8.indigo
+	.modal-content
+		.row
+			.col.s12
+				h4#modaltitle.white-text Agregar Proveedor
+			.col.s12
+				.input-field.col.s12.validate
+					input#name(type="text" name="nameclient")
+					label.white-text(for="name") Nombre del Proveedor
+				.input-field.col.s12.validate
+					input#enterprise(type="text" name="nameclient")
+					label.white-text(for="enterprise") Nombre del Proveedor
+				.input-field.col.s12.validate
+					input#email(type="email" name="email")
+					label.white-text(for="email") Correo Electronico
+				.input-field.col.s12.validate
+					input#cellphone(type="tel" name="tel")
+					label.white-text(for="cellphone") Telefono o Celular
+	.modal-footer.indigo.darken-2
+		a#add(class="waves-effect waves-light green btn") Agregar
+			i(class="material-icons left") add 
+		a(class="waves-effect waves-light red btn") Cancelar
+			i(class="material-icons left") cancel
+

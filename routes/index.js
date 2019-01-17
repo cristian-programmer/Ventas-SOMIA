@@ -11,14 +11,18 @@ router.get('/home', (req, res, next) =>{
   res.render('home', {title: 'home'});
 });
 
-router.post('/login', (req, res, next) =>{
-    console.log("llege aqui");
-
-    passport.authenticate('local', {
-      successRedirect: '/home',
-      failureRedirect:'/',
-      failureFlash:true 
-    })(req, res, next);
+router.post('/login', passport.authenticate('local', {
+  failureRedirect: '/',
+  failureFlash: true,
+}), function (req, res) {
+  
+    res.redirect('/home');
 });
+
+router.get('/logout', (req, res)=>{
+  req.logout();
+  res.redirect('/');
+});
+
 
 module.exports = router;

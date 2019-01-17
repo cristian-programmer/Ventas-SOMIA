@@ -1,18 +1,15 @@
 extends layout
 
 block content
-  .row
-    form(action="/login", method="post")
-            
-        div.input-field.col.s12
-            input(placeholder="Usuario" id="username" type="text" class="validate")
-            label(for="first_name") Usuario
-        
-        div.input-field.col.s12
-            input(placeholder="Clave" id="password" type="password" class="validate")
-            label(for="password") Clave
-
-            button(type='submit')
-                | Login
-                i.material-icons.right send
-
+	.row(style="margin-left:35%;")
+		.col.s12.m6
+			.card.indigo
+				.card-content
+					.card-title
+						span
+							h3.center-align.white-text Inicio de seccion
+							h6.center-align.white-text
+								i.material-icons cloud 
+					.row.center-align
+						include ./loginComponent/login
+	link(rel='stylesheet', href='/stylesheets/LoginComponent/login.css')
