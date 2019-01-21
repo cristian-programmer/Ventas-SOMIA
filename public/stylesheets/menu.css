@@ -1,0 +1,53 @@
+body{
+    font-family: sans-serif; 
+}
+
+nav {
+    position: fixed;
+    width: 20%;
+    height: 100%;
+}
+
+ul{
+    width: 100%;
+    height: 100%;
+}
+
+li {
+    text-align: center;
+}
+
+a{
+    font-size: 16px;
+    font-weight:lighter;
+}
+
+a:hover{
+    background:#ffffff ;
+}
+
+.init{
+    width: 100%;
+    height: 25%;  
+}
+
+.init, ul {
+    background: #e4dcdc;
+}
+
+img{
+    width: 50%;
+    position: relative;
+    left: 25%;
+}
+
+.title{
+    text-align:center;
+    box-sizing: content-box;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+
+
+
