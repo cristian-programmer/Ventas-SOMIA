@@ -1,0 +1,13 @@
+form.col.s12.m12.form(action="/login", method="post")
+    
+    div.input-field
+        input(name="username" type="text" class="validate")
+        label.white-text(for="first_name") Usuario
+        
+    div.input-field
+        input(name="password" type="password" class="validate")
+        label.white-text(for="password") Clave
+    div.input-field
+        button.btn.waves-effect.blue-grey(type='submit')
+            | Login
+            i.material-icons.right send

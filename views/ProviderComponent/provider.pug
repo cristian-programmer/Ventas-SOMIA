@@ -1,0 +1,34 @@
+extends ../layout
+block content
+    include ../menu
+    include ./providermodal
+    .fixed-action-btn
+        a#addclient(class=" btn-floating btn-large waves-effect waves-light red modal-trigger", href="#addClient")
+            i(class="material-icons") add
+
+    .row
+        .col.s12.m6.offset-m6
+            .card
+                .card-content
+                    table#providers.striped.centered.highlight.responsive-table
+                        thead
+                            tr
+                                th Nombre
+                                th Empresa
+                                th Email
+                                th Telefono
+                                th Editar
+
+                        tbody
+                        
+    script(src="/javascripts/client.js")
+    script(src="/javascripts/moduleApi/apiHttp.js")
+    script(src="/javascripts/moduleApi/pointers.js")
+    script(src="/javascripts/moduleValidation/validation.js")
+
+        
+          
+
+    
+
+   
