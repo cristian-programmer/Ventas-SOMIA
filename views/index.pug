@@ -1,23 +1,9 @@
 extends layout
 
 block content
-  nav
-    .init
-      img(src="/images/nav-icon.svg", alt="", srcset="")
-      h6.title Ventas POS  
-
-    ul.nav.flex-column
-      li.nav-item
-        a.nav-link.active(href='#') Usuarios
-      li.nav-item
-        a.nav-link(href='#') Productos
-          i.fas.fa-ad
-      li.nav-item
-        a.nav-link(href='#') Proveedores
-          i.far.fa-arrow-alt-circle-right
-      li.nav-item
-        a.nav-link.disabled(href='#', tabindex='-1', aria-disabled='true') Salir
-  link(rel="stylesheet", href="/stylesheets/menu.css")
-
-
+  .row
+    div#other
+      include ./LoginComponent/login
+  link(rel="stylesheet", href="/stylesheets/style.css")
+  
 

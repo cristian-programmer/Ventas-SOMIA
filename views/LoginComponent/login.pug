@@ -1,13 +1,17 @@
-form.col.s12.m12.form(action="/login", method="post")
-    
-    div.input-field
-        input(name="username" type="text" class="validate")
-        label.white-text(for="first_name") Usuario
-        
-    div.input-field
-        input(name="password" type="password" class="validate")
-        label.white-text(for="password") Clave
-    div.input-field
-        button.btn.waves-effect.blue-grey(type='submit')
-            | Login
-            i.material-icons.right send
+.card.text-center
+    .card-header.font-weight-bold
+        | Inicio de Seccion
+    .card-body
+        .img-content
+            img.img-login(src="/images/nav-icon.svg", alt="", srcset="")
+        form(action="/login", method="post")
+            div.form-row.center
+                div.col-md-12.col-sm-12.font-weight-bold
+                    label(for="first_name") Usuario
+                    input.form-control(name="username" type="text" placeholder="Usuario")
+                div.col-md-12.col-sm-12.font-weight-bold
+                    label(for="password") Clave
+                    input.form-control(name="password" type="password" class="" placeholder="Clave")
+                div.col-md-12.col-sm-12.mt-3
+                    button.btn.btn-primary.btn.btn-block(type='submit')
+                        | Login           

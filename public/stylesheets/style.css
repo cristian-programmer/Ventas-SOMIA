@@ -6,3 +6,16 @@
 a {
   color: #00B7FF;
 } */
+
+
+.row > #other {
+  width: 30%;
+  position: absolute;
+  left: 35%;
+  top: 20%;
+}
+
+.img-login{
+  width: 30%
+}
+

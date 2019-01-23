@@ -3,6 +3,7 @@ let db = require('../db/db').connectDB();
 let bcrypt = require('bcryptjs');
 
 module.exports = (passport)=>{
+    console.log("hola");
     passport.use( new localStrategy((username, password, done)=>{
         console.log(username, password);
         database = 'ventas';

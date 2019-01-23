@@ -1,13 +1,19 @@
 nav
-	.nav-wrapper.indigo.darken-2
-		a.brand-logo(href="#") Ventas
-		ul.right.hide-on-med-and-down
-			li
-				a(href="/provider")  
-					i.material-icons(title="Proveedores") face	
-			li
-				a(href="/") 
-					i.material-icons(title="Productos") business_center
-			li
-				a(href="/logout") 
-					i.material-icons settings_power 
+	.init
+		img(src="/images/nav-icon.svg", alt="", srcset="")
+		h6.title Ventas POS  
+
+	ul.nav.flex-column
+		li.nav-item
+			a.nav-link.active(href='#') Usuarios
+		li.nav-item
+			a.nav-link(href='#') Productos
+				i.fas.fa-ad
+		li.nav-item
+			a.nav-link(href='#') Proveedores
+				i.far.fa-arrow-alt-circle-right
+		li.nav-item
+			a.nav-link(href='/logout', tabindex='-1') Salir
+link(rel="stylesheet", href="/stylesheets/menu.css")
+
+

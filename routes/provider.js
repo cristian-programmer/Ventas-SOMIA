@@ -13,7 +13,6 @@ router.post('/addProvider', (req, res)=>{
      .then(result=>{
          if(result)
             res.json({status:'save'});
-
      })
      .catch(error =>{
         err(error, res);
