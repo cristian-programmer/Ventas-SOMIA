@@ -4,7 +4,7 @@ var passport = require('passport');
 /* GET home page. */
 
 router.get('/', (req, res, next) => {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Ventas POS' });
 });
 
 router.get('/home', (req, res, next) =>{
