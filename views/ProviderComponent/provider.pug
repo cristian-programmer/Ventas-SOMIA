@@ -1,30 +1,71 @@
 extends ../layout
 block content
     include ../menu
+    ul.nav.navtop.d-flex.flex-row-reverse
+        li.nav-item
+            a.nav-link.font-weight-bold Salir
+        li.nav-item
+            a.nav-link.font-weight-bold Configuracion
+
+    div.card.content.shadow.bg-white.rounded
+        h5.card-header Provedores
+        .card-body
+            h6.title Agregar Provedores
+            .form-row
+                .col-sm-12
+                    input.form-control(type="text" id="enterprise" placeholder="Empresa Provedora")
+                       
+                .col-sm-12.mt-3
+                    input.form-control(type="text" id="name_provider" placeholder="Nombre del provedor")
+                
+                .col-sm-12.mt-3
+                    input.form-control(type="email" id="email" placeholder="Email Provedor")
+                
+                .col-sm-12.mt-3
+                    input.form-control(type="" id="cellphone" placeholder="Telefono Celular")
+                
+                .col-sm-12.mt-3
+                    button.btn.btn-primary.btn-block( id="add" ) Agregar 
+                        i.fas.fa-plus-square
+    div.card.content2.shadow.bg-white.rounded
+        h5.card-header Provedores
+        .card-body
+             table.table.table-striped( id="providers")
+                thead
+                    tr
+                        th  Empresa 
+                        th  Nombre 
+                        th  Email
+                        th  Telefono
+                        th  Editar
+                tbody         
+
+    link(rel="stylesheet", href="/stylesheets/ProviderComponent/provider.css")
     include ./providermodal
-    .fixed-action-btn
-        a#addclient(class=" btn-floating btn-large waves-effect waves-light red modal-trigger", href="#addClient")
-            i(class="material-icons") add
+    //- .fixed-action-btn
+    //-     a#addclient(class=" btn-floating btn-large waves-effect waves-light red modal-trigger", href="#addClient")
+    //-         i(class="material-icons") add
 
-    .row
-        .col.s12.m6.offset-m6
-            .card
-                .card-content
-                    table#providers.striped.centered.highlight.responsive-table
-                        thead
-                            tr
-                                th Nombre
-                                th Empresa
-                                th Email
-                                th Telefono
-                                th Editar
+    //- .row
+    //-     .col.s12.m6.offset-m6
+    //-         .card
+    //-             .card-content
+    //-                
+    //-                     thead
+    //-                         tr
+    //-                             th Nombre
+    //-                             th Empresa
+    //-                             th Email
+    //-                             th Telefono
+    //-                             th Editar
 
-                        tbody
+    //-                     tbody
                         
-    script(src="/javascripts/client.js")
+
     script(src="/javascripts/moduleApi/apiHttp.js")
     script(src="/javascripts/moduleApi/pointers.js")
     script(src="/javascripts/moduleValidation/validation.js")
+    script(src="/javascripts/provider.js")
 
         
           

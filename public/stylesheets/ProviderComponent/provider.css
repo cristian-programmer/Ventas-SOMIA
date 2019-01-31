@@ -1,0 +1,33 @@
+div.content {
+    
+    width: 25%;
+    height: 20%;
+    margin-left: 22%;
+    margin-top: 3%;    
+}
+
+div.content2 {
+    width:50%;
+    height: 20%;
+    margin-left:49%;
+    margin-top: -27.5%;
+}
+.navtop {
+    background:#7baaf7;
+    width: 80%;
+    height: 6vh;    
+    margin-left: 20%;
+}
+
+a:hover {
+    color:white;
+}
+
+.edit {
+    width: 50;
+    
+}
+
+table {
+    font-size: 0.9em ;
+} 

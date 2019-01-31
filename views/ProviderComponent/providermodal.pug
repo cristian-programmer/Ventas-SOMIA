@@ -1,24 +1,25 @@
-#addClient.modal.col.s12.m8.indigo
-	.modal-content
-		.row
-			.col.s12
-				h4#modaltitle.white-text Agregar Proveedor
-			.col.s12
-				.input-field.col.s12.validate
-					input#name(type="text" name="nameclient")
-					label.white-text(for="name") Nombre del Proveedor
-				.input-field.col.s12.validate
-					input#enterprise(type="text" name="nameclient")
-					label.white-text(for="enterprise") Nombre del Proveedor
-				.input-field.col.s12.validate
-					input#email(type="email" name="email")
-					label.white-text(for="email") Correo Electronico
-				.input-field.col.s12.validate
-					input#cellphone(type="tel" name="tel")
-					label.white-text(for="cellphone") Telefono o Celular
-	.modal-footer.indigo.darken-2
-		a#add(class="waves-effect waves-light green btn") Agregar
-			i(class="material-icons left") add 
-		a(class="waves-effect waves-light red btn") Cancelar
-			i(class="material-icons left") cancel
+#modalEdit.modal.fade
+	.modal-dialog(role="document")
+		.modal-content
+			.modal-header
+				h6.title Editar Provedores
+				button.close(type='button', data-dismiss='modal', aria-label='Close')
+					span(aria-hidden='true') ×
+			.modal-body
+				.form-row
+					.col-sm-12
+						input.form-control(type="text" id="enterprise" placeholder="Empresa Provedora")
 
+					.col-sm-12.mt-3
+						input.form-control(type="text" id="name_provider" placeholder="Nombre del provedor")
+
+					.col-sm-12.mt-3
+						input.form-control(type="email" id="email" placeholder="Email Provedor")
+
+					.col-sm-12.mt-3
+						input.form-control(type="" id="cellphone" placeholder="Telefono Celular")
+			.modal-footer
+				.btn.btn-primary#edit Editar 
+					i.fas.fa-edit
+				.btn.btn-danger#cancel Cancelar 
+					i.fas.fa-times-circle

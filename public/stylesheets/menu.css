@@ -1,11 +1,13 @@
 body{
     font-family: sans-serif; 
+    background:blue;
 }
 
 nav {
     position: fixed;
     width: 20%;
     height: 100%;
+    
 }
 
 ul{
@@ -20,10 +22,12 @@ li {
 a{
     font-size: 16px;
     font-weight:lighter;
+    
 }
 
 a:hover{
-    background:#ffffff ;
+    background:blue ;
+    color: white;
 }
 
 .init{
@@ -32,7 +36,8 @@ a:hover{
 }
 
 .init, ul {
-    background: #e4dcdc;
+    /* background: #e4dcdc; */
+    background: rgb(255, 255, 255);
 }
 
 img{
