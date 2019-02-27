@@ -16,7 +16,6 @@ function db(query){
         db= connectDB();
         db.query(query, (error, result)=>{
             if(error) reject(error);            
-            db.end();
             resolve(result);
         });
     });

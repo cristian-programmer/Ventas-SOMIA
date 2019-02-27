@@ -2,5 +2,7 @@ pointer = {
     login:"/login",
     addProvider:'/provider/addProvider',
     getProviders:'/provider/getProviders',
-    getProvider:'/provider/getProvider'
+    getProvider:'/provider/getProvider',
+    editProvider:'/provider/editProvider',
+    deleteProvider:'/provider/deleteProvider'
 };

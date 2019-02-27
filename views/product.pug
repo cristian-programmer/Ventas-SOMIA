@@ -1,0 +1,36 @@
+extends layout
+block content
+    include ./menu
+    ul.nav.navtop.d-flex
+        li.nav-item
+            button.btn.btn-success.btn-sm.font-weight-bold( data-toggle="modal" data-target="#create-product-modal")
+                i.fas.fa-plus-square  Crear Producto
+    #create-product-modal.modal.fade
+        .modal-dialog(role="document")
+            .modal-content
+                .modal-header
+                    h6.title Crear Producto
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') ×
+                .modal-body
+                    .form-row
+                        .col-sm-12
+                            input.form-control(type="text" id="enterprise" placeholder="Nombre del Producto")
+
+                        .col-sm-12.mt-3
+                            input.form-control(type="text" id="name_provider" placeholder="")
+
+                        .col-sm-12.mt-3
+                            input.form-control(type="email" id="email" placeholder="Email Provedor")
+
+                        .col-sm-12.mt-3
+                            input.form-control(type="" id="cellphone" placeholder="Telefono Celular")
+                .modal-footer
+                    .btn.btn-primary#create-product Crear 
+                        i.fas.fa-edit
+                    .btn.btn-danger#cancel-product Cancelar 
+                        i.fas.fa-times-circle
+        
+       
+    link(rel="stylesheet", href="/stylesheets/product.css")
+    script(src="/javascripts/product.js")

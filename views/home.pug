@@ -1,3 +1,42 @@
 extends layout
 block content 
 	include ./menu
+	ul.nav.navtop.d-flex.flex-row-reverse
+		li.nav-item
+			a.nav-link.font-weight-bold Salir
+		li.nav-item
+			a.nav-link.font-weight-bold Configuracion
+	.card.w-50
+		.card-header
+			h5.card-title Caja
+		.card-body
+			form.needs-validation(novalidate="")
+				.form-row
+					.col-sm-5
+						.media
+							a(href="")
+								img(src="/images/nav-icon.svg", alt="")
+					.col-sm-6.content-data
+						.col-sm-12
+							
+							input.form-control(type="text" id="" placeholder="Codigo de barras" required="")
+							.valid-tooltip 
+							.invalid-feedback Looks Bad!
+						.col-sm-12.mt-3
+							input.form-control(type="text" id="" placeholder="Nombre del producto" required="")
+							.valid-tooltip 
+							.invalid-feedback Looks Bad!
+						.col-sm-12.mt-3
+							input.form-control(type="email" id="email" placeholder="Precio del producto" required="") 
+							.valid-tooltip 
+							.invalid-feedback Looks Bad!
+						.col-sm-12.mt-3
+							input.form-control(type="" id="cellphone" placeholder="Telefono Celular" required="")
+							.valid-tooltip 
+							.invalid-feedback Looks Bad!
+						.col-sm-12.mt-3
+							button.btn.btn-success( type="submit") Vender					
+
+	link(rel="stylesheet", href="/stylesheets/home.css") 	
+	script(src="/javascripts/home.js")
+

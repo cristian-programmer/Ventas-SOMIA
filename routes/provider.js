@@ -39,7 +39,7 @@ router.post('/getProviders', (req, res)=>{
     });
 });
 
-router.get('/getProvider/:id', (req, res)=>{
+router.get('/getProvider/:id', (req, res) => {
     let id = req.params.id;
     console.log('id',id);
     db(`select * from ventas.providers where id=${id};`).then(result=>{
@@ -51,7 +51,16 @@ router.get('/getProvider/:id', (req, res)=>{
         err(error, res);
     })
 
-})
+});
+
+router.patch('/editProvider/:id', (req, res) => {
+    let id = req.params.id;
+    console.log('patch  id ', id);
+});
+
+router.delete('/deleteProvider/:id',  (req, res) => {
+
+});
 
 function err(error, res){
     console.warn(error);

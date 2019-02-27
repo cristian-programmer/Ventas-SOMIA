@@ -7,15 +7,17 @@ var session = require('express-session');
 var passport = require('passport');
 var flash = require('connect-flash')
 
+var dbc = require('./db/dbcreate');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var providerRouter  = require('./routes/provider');
-
+var productRouter = require('./routes/product');
 
 
 var app = express();
 
 // view engine setup
+dbc.createTables();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 app.use(flash());
@@ -39,6 +41,7 @@ require('./passport/passport')(passport);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/provider', providerRouter);
+app.use('/product', productRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

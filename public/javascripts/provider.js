@@ -3,6 +3,7 @@ const RECEIVED = 'received';
 
 document.addEventListener('DOMContentLoaded',() => {
     addProvider();
+    
     getProviders(); 
     cancelProvider();
 });
@@ -48,18 +49,18 @@ function getProviders(){
             {data:'cellphone'},
             {data:'id',
             render: (id)=>{
-                return `<button class="btn btn-primary btn-sm" id="${id}" onclick="editProvider(this)">
+                return `<button class="btn btn-primary btn-sm" id="${id}" onclick="getProvider(this)">
                     <i class="fas fa-edit"></i> </button>`;
             }}
         ]
     });
 }
 
-// function deleteProvider(){
+function deleteProvider(){
 
-// }
+}
 
-function editProvider(elem){   
+function getProvider(elem){   
     console.log(elem.id);
     let id = elem.id;
     httpGet(pointer.getProvider, id)
@@ -68,6 +69,7 @@ function editProvider(elem){
         if(res.status == RECEIVED){
             setDataModal(res.data); 
             $('.modal').modal();
+            editProvider(id);
         }
     });
 }
@@ -98,4 +100,12 @@ function setDataModal(provider){
     $('#modalEdit #enterprise').val(provider[0].enterprise);
     $('#modalEdit #email').val(provider[0].email);
     $('#modalEdit #cellphone').val(provider[0].cellphone);
+}
+
+function editProvider(id){
+    document.getElementById('edit').addEventListener('click', () =>{
+        httpPatch(pointer.editProvider, id)
+        .then(res => { return res.json() })
+        .then(res => { console.log(res);});
+    });
 }
