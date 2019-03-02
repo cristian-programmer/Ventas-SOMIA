@@ -1,9 +1,9 @@
 extends layout
 block content
     include ./menu
-    ul.nav.navtop.d-flex
+    ul.nav.navtop.d-flex.align-items-center
         li.nav-item
-            button.btn.btn-success.btn-sm.font-weight-bold( data-toggle="modal" data-target="#create-product-modal")
+            button.btn.btn-success.btn-sm.font-weight-bold.ml-1( data-toggle="modal" data-target="#create-product-modal")
                 i.fas.fa-plus-square  Crear Producto
     #create-product-modal.modal.fade
         .modal-dialog(role="document")
@@ -15,22 +15,35 @@ block content
                 .modal-body
                     .form-row
                         .col-sm-12
-                            input.form-control(type="text" id="enterprise" placeholder="Nombre del Producto")
+                            input.form-control.form-control-sm(type="text" id="nameProduct" placeholder="Nombre del Producto")
 
                         .col-sm-12.mt-3
-                            input.form-control(type="text" id="name_provider" placeholder="")
+                            select.form-control.form-control-sm(id="provider" placeholder="Proveedor")
+                                option un proveedor
 
                         .col-sm-12.mt-3
-                            input.form-control(type="email" id="email" placeholder="Email Provedor")
+                            input.form-control.form-control-sm(type="text" id="acquisitionPrice" placeholder="Precio de Unidad")
 
                         .col-sm-12.mt-3
-                            input.form-control(type="" id="cellphone" placeholder="Telefono Celular")
+                            .row
+                                .col-sm-6
+                                    input.form-control.form-control-sm(type="" id="percentageProduct" placeholder="Porcentaje")
+                                .col-sm-6
+                                    input.form-control.form-control-sm(type="" id="unitPrice" placeholder="Precio unitario")
+                        .col-sm-12.mt-3
+                            //- input.form-control.form-control-sm(type="" id="cellphone" placeholder="Total")
+                        .col-sm-12.mt-3
+                            .alert.alert-success.alert-dismissible.fade.show(role="alert" id="info")
+                                | Producto Agregado Correctamente
+                                button.close(type="text", data-dismiss="alert" arial-label="Close")
+                                    span(arial-hidden="true") &times; 
                 .modal-footer
-                    .btn.btn-primary#create-product Crear 
+                    .btn.btn-primary.btn-sm#create-product Crear 
                         i.fas.fa-edit
-                    .btn.btn-danger#cancel-product Cancelar 
+                    .btn.btn-danger.btn-sm#cancel-product Cancelar 
                         i.fas.fa-times-circle
-        
+
        
     link(rel="stylesheet", href="/stylesheets/product.css")
     script(src="/javascripts/product.js")
+    

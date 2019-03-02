@@ -29,25 +29,28 @@ function createTableProviders(){
 function createTableInventory(){
     db(`create table if not exists inventory
     (id int not null auto_increment, idProduct int, idProvider int,
-     minProduct TINYINT(3), quantity TINYINT(5), primary key(id);)`)
+     minProduct TINYINT(3), quantity TINYINT(5), primary key(id));`)
     .then(res =>{ console.log(res)})
     .catch(error =>{console.log(error)});
 }
 
 function createTableDailyReports(){
-    db(`create table if not exists daily_reports`)
+    db(`create table if not exists daily_reports
+    (id int not null auto_increment, reportDay datetime, dailySale decimal(7,4),primary key(id));`)
     .then(res =>{ console.log(res)})
     .catch(error =>{console.log(error)});
 }
 
 function createTableMonthlyReports(){
-    db(`create table if not exists monthly_reports`)
+    db(`create table if not exists monthly_reports 
+    (id int not null auto_increment, reportDate datetime, monthlySale decimal(7,4), primary key(id));`)
     .then(res =>{ console.log(res)})
     .catch(error =>{console.log(error)});
 }
 
 function createTableAnnualReports(){
-    db(`create table if not exists annual_reports`)
+    db(`create table if not exists annual_reports 
+    (id int not null auto_increment, reportDate datetime, annualSale decimal(7,4), primary key(id));`)
     .then(res =>{ console.log(res)})
     .catch(error =>{console.log(error)});
 }

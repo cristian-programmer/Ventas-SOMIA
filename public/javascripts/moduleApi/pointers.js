@@ -4,5 +4,6 @@ pointer = {
     getProviders:'/provider/getProviders',
     getProvider:'/provider/getProvider',
     editProvider:'/provider/editProvider',
-    deleteProvider:'/provider/deleteProvider'
+    deleteProvider:'/provider/deleteProvider',
+    createProduct: '/product/createProduct'
 };
