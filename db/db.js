@@ -1,11 +1,18 @@
 mysql = require('mysql');
 
 function connectDB(){
-    connection = mysql.createConnection({
+/*    connection = mysql.createConnection({
         host:'testdb.cwzv9cavcy23.us-east-1.rds.amazonaws.com',
         user: 'testdb',
         password:'12345678.',
         database: 'sales'
+    });
+*/
+    connection = mysql.createConnection({
+        host:'localhost',
+        user: 'root',
+        password:'1234',
+        database: 'ventas'
     });
 
     return connection;

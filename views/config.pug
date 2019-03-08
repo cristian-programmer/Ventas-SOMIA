@@ -1,11 +1,47 @@
 extends layout
-block content
-    .row
-        include ./menu
-        ul.nav.navtop.d-flex.align-items-center
-            li.nav-item
-                .btn.btn-success.btn-sm.font-weight-bold.ml-1( data-toggle="modal" data-target="#create-user-modal")
-                    i.fas.fa-plus-square
-                        |   Crear Usuario
+block content   
+    include ./menu
+    ul.nav.navtop.d-flex.align-items-center
+        li.nav-item
+            button.btn.btn-success.btn-sm.font-weight-bold.ml-1( data-toggle="modal" data-target="#create-user-modal")
+                i.fas.fa-plus-square  Crear Usuario
+    
+    div.card.content2.shadow.bg-white.rounded
+        h5.card-header Provedores
+        .card-body
+            h6.title Usuarios
+            table.table.table-striped.table-sm( id="users" )
+                thead
+                    tr
+                        th  Usuario 
+                        th  Editar
+                tbody
+    #create-user-modal.modal.fade
+        .modal-dialog( role="document")
+            .modal-content
+                .modal-header
+                    h6.title Crear Usuario
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') ×
+                .modal-body
+                    .form-row
+                        .col-sm-12
+                            input.form-control.form-control-sm( type="text" id="username" placeholder="Nombre usuario")
+                        .col-sm-12.mt-3
+                            input.form-control.form-control-sm( type="text" id="password" placeholder="Clave")
+                        .col-sm-12.mt-3
+                            input.form-control.form-control-sm( type="text" id="cmp_password" placeholder="Repite Clave")  
+                        .col-sm-12.mt-3
+                            .alert.alert-success.alert-dismissible.fade.show(role="alert" id="info")
+                                | Producto Agregado Correctamente
+                                button.close(type="text", data-dismiss="alert" arial-label="Close")
+                                    span(arial-hidden="true") &times; 
+                .modal-footer
+                    button.btn.btn-primary.btn-sm#create-user Crear 
+                        i.fas.fa-edit
+                    button.btn.btn-danger.btn-sm#cancel-product Cancelar 
+                        i.fas.fa-times-circle 
+
     link(rel="stylesheet", href="/stylesheets/config.css")
     script(src="/javascripts/config.js")
+    

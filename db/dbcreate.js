@@ -57,18 +57,10 @@ function createTableAnnualReports(){
 }
 
 function createTableUsers(){
-<<<<<<< HEAD
-    db(`create table if not exists users (id int not null auto_increment, username varchar(20), password varchar(100));`)
-=======
     db(`create table if not exists users (id int not null auto_increment, username varchar(20),
     password varchar(100), primary key(id));`)
->>>>>>> 0b6bedaed038a3b6fd769ed2680f7875a203fdca
     .then(res => console.log(res))
     .catch(error => console.log(error));
 }
 
-<<<<<<< HEAD
-module.exports = { createTables : createTables};
-=======
 module.exports = { createTables: createTables};
->>>>>>> 0b6bedaed038a3b6fd769ed2680f7875a203fdca
