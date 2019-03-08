@@ -1,0 +1,11 @@
+extends layout
+block content
+    .row
+        include ./menu
+        ul.nav.navtop.d-flex.align-items-center
+            li.nav-item
+                .btn.btn-success.btn-sm.font-weight-bold.ml-1( data-toggle="modal" data-target="#create-user-modal")
+                    i.fas.fa-plus-square
+                        |   Crear Usuario
+    link(rel="stylesheet", href="/stylesheets/config.css")
+    script(src="/javascripts/config.js")
