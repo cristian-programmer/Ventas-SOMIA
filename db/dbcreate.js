@@ -7,6 +7,7 @@ function createTables(){
     createTableDailyReports();
     createTableMonthlyReports();
     createTableAnnualReports();
+    createTableUsers();
 }
 
 function createTableProducts(){
@@ -55,4 +56,10 @@ function createTableAnnualReports(){
     .catch(error =>{console.log(error)});
 }
 
-module.exports = { createTables: createTables};
+function createTableUsers(){
+    db(`create table if not exists users (id int not null auto_increment, username varchar(20), password varchar(100));`)
+    .then(res => console.log(res))
+    .catch(error => console.log(error));
+}
+
+module.exports = { createTables : createTables};
