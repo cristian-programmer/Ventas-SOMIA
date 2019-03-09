@@ -18,4 +18,7 @@ router.post('/createProduct', (req, res) =>{
     });
 });
 
+router.get('get-products', ()=>{
+
+});
 module.exports = router;

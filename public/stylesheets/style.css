@@ -7,6 +7,9 @@ a {
   color: #00B7FF;
 } */
 
+body {
+  overflow: auto;
+}
 
 .row > #other {
   width: 30%;

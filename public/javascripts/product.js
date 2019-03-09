@@ -37,3 +37,14 @@ function initModuleUI(){
 function showInfo(){
     document.getElementById('info').style.display= "block";
 }
+
+function loopProducts(){
+    
+}
+
+function getAllProducts(){
+    httpGet(pointer.getProducts)
+    .then(res => {return res.json()})
+    .then(res =>{})
+    .catch();
+}
