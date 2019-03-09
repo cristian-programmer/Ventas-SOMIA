@@ -7,6 +7,20 @@ function httpGet(url, data){
     });
 }
 
+async function httpGetSync(url, data){
+    try {
+        if (arguments.length > 1) {    
+            const response = await fetch(`${url}/${data}`, { method: 'GET'});
+            return response.json();
+        }
+        const response = await fetch(`${url}`, { method: 'GET'});
+        return response.json();
+
+    } catch (error) {
+        console.log(error);
+    }
+} 
+
 function httpPost(url, data){
     console.log(data);
     return new Promise((resolve, reject)=>{
@@ -15,6 +29,15 @@ function httpPost(url, data){
         .catch(error => { reject(error) });
     });
 }
+
+async function httPostSync(url, data){
+    try {
+        const response = await fetch(`${url}`, { method: 'POST', body: data });
+        return response.json();
+    } catch (error) {
+        console.log(error);
+    }
+} 
 
 function httpPatch(url, data){
     return new Promise((resolve, reject) => {

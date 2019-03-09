@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("ok");
     initModuleUI();
     onCreateProduct();
+    getAllProducts();
     
 });
 
@@ -38,13 +39,45 @@ function showInfo(){
     document.getElementById('info').style.display= "block";
 }
 
-function loopProducts(){
-    
+function loopProducts(response){
+
+    for(let product in response.data){
+        // console.log(response.data[product].id);
+        let  card = document.createElement('div');
+        card.className = 'card'
+        card.innerHTML = UIproduct(response.data[product]);
+        document.getElementById('card-products').appendChild(card);
+        
+    }   
 }
 
-function getAllProducts(){
-    httpGet(pointer.getProducts)
-    .then(res => {return res.json()})
-    .then(res =>{})
-    .catch();
+function UIproduct(product){
+    console.log(product);
+    return `
+    <div>
+        <button class="close" type='button' data-dismiss='modal' aria-label='Close'>
+            <span aria-hidden='true'> &times; </span>
+        </button>    
+        <img class="card-img-top img-product"  src="/images/arroz.jpg" alt="..." style="left:0%;"/>
+        <div class="card-body" >
+            <h5 class="card-title">
+                <span class="badge badge-dark"> ${product.nameProduct}</span>
+            </h5>
+            <span class="badge badge-dark"> Cantidad: 50 pacas </span>
+            <p class="card-text"> Provedor: ${product.provider}</p>
+            <p class="card-text"> Valor unidad : ${product.acquisitionPrice} pesos</p>
+            <p class="card-text"> Valor unitario  : ${product.unitPrice}1.600 pesos </p>
+            <p class="card-text"> Porcentaje: 20% </p>
+            <p class="card-text"> Precio de venta : ${product.unitPrice}</p>
+        
+            <button class=" btn btn-success btn-sm" > Ver Detalle</button>
+        </div>
+    <div>
+    `; 
+}
+
+async function getAllProducts(){
+    response = await httpGetSync(pointer.getProducts);
+   console.log(response);
+   loopProducts(response);
 }

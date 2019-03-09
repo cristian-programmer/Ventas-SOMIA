@@ -18,7 +18,11 @@ router.post('/createProduct', (req, res) =>{
     });
 });
 
-router.get('get-products', ()=>{
-
+router.get('/get-products', (req, res)=>{
+    console.log("entre");
+    db(`select * from products;`).then(result => {
+        console.log(result);
+        res.json({data: result});
+    }).catch(error => {console.log(error)});
 });
 module.exports = router;

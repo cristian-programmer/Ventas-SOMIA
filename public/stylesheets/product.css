@@ -4,3 +4,13 @@
     height: 6vh;    
     margin-left: 20%;
 }
+
+
+p {
+    font-size: 0.8em ;
+}
+
+.img-product {
+    width: 100%;
+    height: 25vh;
+}
