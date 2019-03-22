@@ -1,34 +1,31 @@
 extends ../layout
 block content
     include ../menu
-    ul.nav.navtop.d-flex.flex-row-reverse
-        li.nav-item
-            a.nav-link.font-weight-bold Salir
-        li.nav-item
-            a.nav-link.font-weight-bold Configuracion
+    ul.nav.navtop.d-flex.flex-row-reverse(style="margin-bottom:4%")
+
 
     div.card.content.shadow.bg-white.rounded
-        h5.card-header Provedores
+        h6.card-header Provedores
         .card-body
             h6.title Agregar Provedores
             .form-row
                 .col-sm-12
-                    input.form-control(type="text" id="enterprise" placeholder="Empresa Provedora")
+                    input.form-control.form-control-sm(type="text" id="enterprise" placeholder="Empresa Provedora")
                        
                 .col-sm-12.mt-3
-                    input.form-control(type="text" id="name_provider" placeholder="Nombre del provedor")
+                    input.form-control.form-control-sm(type="text" id="name_provider" placeholder="Nombre del provedor")
                 
                 .col-sm-12.mt-3
-                    input.form-control(type="email" id="email" placeholder="Email Provedor")
+                    input.form-control.form-control-sm(type="email" id="email" placeholder="Email Provedor")
                 
                 .col-sm-12.mt-3
-                    input.form-control(type="" id="cellphone" placeholder="Telefono Celular")
+                    input.form-control.form-control-sm(type="" id="cellphone" placeholder="Telefono Celular")
                 
                 .col-sm-12.mt-3
-                    button.btn.btn-primary.btn-block( id="add" ) Agregar 
+                    button.btn.btn-primary.btn-block.btn-sm( id="add" ) Agregar 
                         i.fas.fa-plus-square
     div.card.content2.shadow.bg-white.rounded
-        h5.card-header Provedores
+        h6.card-header Provedores
         .card-body
              table.table.table-striped.table-sm( id="providers")
                 thead
@@ -37,7 +34,7 @@ block content
                         th  Nombre 
                         th  Email
                         th  Telefono
-                        th  Editar
+                        th  Editar & Delete
                 tbody         
 
     link(rel="stylesheet", href="/stylesheets/ProviderComponent/provider.css")

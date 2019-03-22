@@ -39,6 +39,15 @@ async function httPostSync(url, data){
     }
 } 
 
+async function httpDeleteSync(url, id){
+    try {
+    const response = await fetch(`${url}/${id}`, { method: 'DELETE'});
+    return response.json();
+    } catch (error) {
+        console.log(error);
+    }
+} 
+
 function httpPatch(url, data){
     return new Promise((resolve, reject) => {
         fetch(url, {method: 'PATCH', body:data, headers: {'Content-Type': 'applicacion/json'}})

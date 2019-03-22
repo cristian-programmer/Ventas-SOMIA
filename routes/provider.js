@@ -53,13 +53,29 @@ router.get('/getProvider/:id', (req, res) => {
 
 });
 
+router.get('/get-name-providers', (req, res) => {
+    db(`select name, enterprise from providers;`).then(result =>{ 
+        console.log(result);
+        res.json({status : 'received', data : result});
+    }).catch(error =>{
+        console.log(error);
+    });
+});
+
 router.patch('/editProvider/:id', (req, res) => {
     let id = req.params.id;
     console.log('patch  id ', id);
 });
 
 router.delete('/deleteProvider/:id',  (req, res) => {
-
+    let id = req.params.id;
+    db(`delete from providers where id="${id}";`).then(result=>{
+        console.log('delete provider', result);
+        res.json({status: 'delete'});
+    }).catch(error =>{
+        console.log(error);
+    });
+    console.log('delete provider', req.params.id);
 });
 
 function err(error, res){

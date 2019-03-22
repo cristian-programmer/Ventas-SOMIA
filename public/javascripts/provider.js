@@ -3,7 +3,6 @@ const RECEIVED = 'received';
 
 document.addEventListener('DOMContentLoaded',() => {
     addProvider();
-    
     getProviders(); 
     cancelProvider();
 });
@@ -49,15 +48,19 @@ function getProviders(){
             {data:'cellphone'},
             {data:'id',
             render: (id)=>{
-                return `<button class="btn btn-primary btn-sm" id="${id}" onclick="getProvider(this)">
-                    <i class="fas fa-edit"></i> </button>`;
+                return `<div class="d-flex justify-content-between"> <button class="btn btn-primary btn-sm" id="${id}" onclick="getProvider(this)">
+                    <i class="fas fa-edit"></i> </button>
+                    <button class="btn btn-danger btn-sm" id="${id}" onclick="deleteProvider(this)"><i class="fas fa-trash"></i></button>
+                    <div>`;
             }}
         ]
     });
 }
 
-function deleteProvider(){
-
+async function deleteProvider(elem){
+    let id = elem.id;
+    const res = await httpDeleteSync(pointer.deleteProvider, id);
+    console.log(res);
 }
 
 function getProvider(elem){   

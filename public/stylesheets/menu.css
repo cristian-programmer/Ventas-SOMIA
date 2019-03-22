@@ -1,6 +1,6 @@
 body{
     font-family: sans-serif; 
-    background:blue;
+    /* backgrou; */
 }
 
 nav {
@@ -22,12 +22,13 @@ li {
 a{
     font-size: 16px;
     font-weight:lighter;
+    color: #acdbdf;
     
 }
 
 a:hover{
-    background:blue ;
-    color: white;
+    background:#69779b ;
+    color: #f0ece2;
 }
 
 .init{
@@ -35,9 +36,9 @@ a:hover{
     height: 25%;  
 }
 
-.init, ul {
+.init, nav >ul {
     /* background: #e4dcdc; */
-    background: rgb(255, 255, 255);
+    background: #69779b;
 }
 
 img{
@@ -46,11 +47,12 @@ img{
     left: 25%;
 }
 
-.title{
+.init > h6.title{
     text-align:center;
     box-sizing: content-box;
     font-family: sans-serif;
     font-weight: bold;
+    color: #acdbdf;
 }
 
 

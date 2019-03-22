@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initModuleUI();
     onCreateProduct();
     getAllProducts();
-    
+    getProviders();
 });
 
 function onCreateProduct(){
@@ -44,7 +44,7 @@ function loopProducts(response){
     for(let product in response.data){
         // console.log(response.data[product].id);
         let  card = document.createElement('div');
-        card.className = 'card'
+        card.className = 'card shadow'
         card.innerHTML = UIproduct(response.data[product]);
         document.getElementById('card-products').appendChild(card);
         
@@ -55,9 +55,6 @@ function UIproduct(product){
     console.log(product);
     return `
     <div>
-        <button class="close" type='button' data-dismiss='modal' aria-label='Close'>
-            <span aria-hidden='true'> &times; </span>
-        </button>    
         <img class="card-img-top img-product"  src="/images/arroz.jpg" alt="..." style="left:0%;"/>
         <div class="card-body" >
             <h5 class="card-title">
@@ -71,6 +68,7 @@ function UIproduct(product){
             <p class="card-text"> Precio de venta : ${product.unitPrice}</p>
         
             <button class=" btn btn-success btn-sm" > Ver Detalle</button>
+            <button class=" btn btn-danger btn-sm" > <i class="fas fa-trash-alt"></i></button>
         </div>
     <div>
     `; 
@@ -80,4 +78,17 @@ async function getAllProducts(){
     response = await httpGetSync(pointer.getProducts);
    console.log(response);
    loopProducts(response);
+}
+
+async function getProviders() {
+    response = await httpGetSync(pointer.getNameProvider)
+    console.log(response);
+    for(provider in response.data){
+        // console.log();
+        let option = document.createElement('option');
+        option.innerHTML = `${response.data[provider].name} - 
+        ${response.data[provider].enterprise}`; 
+        document.getElementById('provider').appendChild(option); 
+    }
+      
 }
