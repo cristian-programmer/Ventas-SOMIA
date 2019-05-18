@@ -1,13 +1,18 @@
 const { db } = require('./db');
 
 function createTables(){
-    createTableProducts();
+   // createTableProducts();
     createTableProviders();
     createTableInventory();
     createTableDailyReports();
     createTableMonthlyReports();
     createTableAnnualReports();
     createTableUsers();
+    
+    createTablePlate();
+    createTableIngredients();
+    createTableStock();
+    createTableReportV();
 }
 
 function createTableProducts(){
@@ -61,6 +66,34 @@ function createTableUsers(){
     password varchar(100), primary key(id));`)
     .then(res => console.log(res))
     .catch(error => console.log(error));
+}
+
+function createTablePlate(){
+    db(`create table if not exists plate  (id int not null auto_increment, precie int, name varchar(50), idinv int, primary key(id));`)
+    .then(res =>{console.log(res)})
+    .catch(error =>{console.log(error)});
+}
+
+function createTableIngredients(){
+    db(`create table if not exists ingredients (id int not null auto_increment, name varchar(50), 
+    purcharse_price int, type_weight varchar(10), weight varchar(10), primary key(id));`)
+    .then(res =>{console.log(res)})
+    .catch(error =>{console.log(error)});
+}
+
+function createTableStock(){
+    db(`create table if not exists stock
+    (id int not null auto_increment, iding int,
+     idplate int, quantity TINYINT(5), primary key(id));`)
+    .then(res =>{ console.log(res)})
+    .catch(error =>{console.log(error)});
+}
+
+function createTableReportV(){
+    db(`create table if not exists report
+    (id int not null auto_increment, idinv int, sale int, purcharse_price int, primary key(id));`)
+    .then(res =>{ console.log('ok create all tables',res)})
+    .catch(error =>{console.log(error)});
 }
 
 module.exports = { createTables: createTables};

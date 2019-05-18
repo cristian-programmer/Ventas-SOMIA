@@ -1,7 +1,15 @@
 express = require('express');
 router = express.Router();
 const { db } = require('./../db/db');
-router.get('/', (req, res) =>{
+
+function requireRole(role){
+    return function(req, res, next){
+        console.log(req.session.user);
+        next();
+    }
+}
+
+router.get('/', requireRole("user"), (req, res) =>{
     res.render('product', {title: 'Productos'});
 });
 

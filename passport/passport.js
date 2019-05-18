@@ -9,10 +9,12 @@ module.exports = (passport)=>{
         database = 'ventas';
         db.query(`select * from ${database}.users where username=${username}`,(error, result)=>{
             if(error) return done(null, false,  'error form database');
-
+            console.log(result);
+            
             bcrypt.compare(password, result[0].password, (error, isMatch)=>{
                 if(error) throw error;
-                if(isMatch) return done(null, username);
+                console.log(' here.. ',username);
+                if(isMatch) return done(null, {user : username, type : 'admin'});
                 else return done(null, false,  'wrong password');
             });
         });  
