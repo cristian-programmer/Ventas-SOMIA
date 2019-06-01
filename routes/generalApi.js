@@ -67,6 +67,66 @@ router.post('/addPlate',async (req, res)=>{
 
 });
 
+
+router.get('/getAllPlates', (req, res)=>{
+    plates = [];
+
+    db(`select * from plate`).then(result =>{
+        console.log(result);
+
+        for(let i=0; i< result.length; i++){
+            plates.push({
+                id: result[i].id,
+                name: result[i].name,
+                precie: result[i].precie,
+                description: result[i].name,
+                inStock: 10 
+            });
+        }
+
+        res.json({plates: plates});
+
+    }).catch(error=>{
+        console.log(error);
+    });
+});
+
+router.get('/getReport', (req, res)=>{
+
+    db(`select sale from ventas.report`).then(result=>{
+        console.log(result);
+        data = result[0].sale;
+       
+        res.json({report: `${ data.toString()}`});
+    }).catch(error=>{
+        console.log(error);
+    })    
+});
+
+
+
+router.post('/addReport', (req, res)=>{
+    data = [];
+    report = req.body;
+    console.log(report);
+    addItemReport(report).then(resl=>{
+        res.json({res: resl});
+    }) ;
+   
+});
+
+
+function addItemReport(report){
+    return new Promise (function(resolve, reject){
+        db(`insert into ventas.report (idinv, sale , purcharse_price ) 
+        values (${report.idnv}, ${report.sale}, ${report.purcharse_price});`).then(res=>{
+            resolve(res);
+        }).catch(error=>{
+            reject(error);
+        })
+    });
+}
+
 async function findByIdPlate(id) {
     return  result = await db(`select * from ventas.stock where idplate = ${id};`); 
 }
@@ -92,8 +152,10 @@ async function addItemPlate(plate){
 async function addItemIngredients(ingredient){
     return result = await db(`insert into ventas.ingredients 
         (name, purcharse_price, type_weight, weight ) values
-        ("${ingredient.name}", ${Number(ingredient.purcharse_price)},
+        ("${ingredient.nameing}", ${Number(ingredient.purcharse_price)},
          "${ingredient.type_weight}", "${ingredient.weight}");`);
 }
+
+
 
 module.exports = router;

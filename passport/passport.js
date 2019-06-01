@@ -7,9 +7,9 @@ module.exports = (passport)=>{
     passport.use( new localStrategy((username, password, done)=>{
         console.log(username, password);
         database = 'ventas';
-        db.query(`select * from ${database}.users where username=${username}`,(error, result)=>{
+        db.query(`select * from ${database}.users where username="${username}";`,(error, result)=>{
             if(error) return done(null, false,  'error form database');
-            console.log(result);
+            console.log("result", result);
             
             bcrypt.compare(password, result[0].password, (error, isMatch)=>{
                 if(error) throw error;
@@ -19,6 +19,7 @@ module.exports = (passport)=>{
             });
         });  
     }));
+
     
     passport.serializeUser((user, done)=>{
         console.log('serializable', user);

@@ -8,7 +8,7 @@ router.get('/', (req, res)=>{
 router.post('/addProvider', (req, res)=>{
     console.log(req.body);
 
-    db(`insert into ventas.providers (name, enterprise, email, cellphone) values
+    db(`insert into ventas.providers (nameProvider, nameEnterprise, email, cellphone) values
      ("${req.body.name}", "${req.body.enterprise}", "${req.body.email}", "${req.body.cellphone}");`)
      .then(result=>{
          if(result)

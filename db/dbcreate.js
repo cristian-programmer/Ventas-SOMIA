@@ -8,7 +8,7 @@ function createTables(){
     createTableMonthlyReports();
     createTableAnnualReports();
     createTableUsers();
-    
+    createTableProducts();
     createTablePlate();
     createTableIngredients();
     createTableStock();

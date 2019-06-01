@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DockHunt</string>
+    <string name="title_activity_duck_game_stage">DuckGameStage</string>
+</resources>
